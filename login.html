@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Echoes from the Future</title>
+    <style>
+        body {
+            background-color: black;
+            color: limegreen;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            padding: 20px;
+        }
+        input, button {
+            background: none;
+            border: 1px solid limegreen;
+            color: limegreen;
+            padding: 10px;
+            font-size: 18px;
+            margin: 10px;
+        }
+        button:hover {
+            background: limegreen;
+            color: black;
+        }
+        .hidden-msg {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome, Seeker</h1>
+    <p>Enter your credentials to begin the journey.</p>
+    <form id="signup-form">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Sign Up</button>
+    </form>
+    <p class="hidden-msg" id="confirmation">Processing request... Access pending approval.</p>
+    
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('confirmation').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

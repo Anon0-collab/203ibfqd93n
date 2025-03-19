@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Point Zero</title>
+    <style>
+        body {
+            background-color: black;
+            color: limegreen;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            padding: 20px;
+        }
+        input, button {
+            background: none;
+            border: 1px solid limegreen;
+            color: limegreen;
+            padding: 10px;
+            font-size: 18px;
+            margin: 10px;
+        }
+        button:hover {
+            background: limegreen;
+            color: black;
+        }
+        .hidden-msg {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ACCESS POINT ZERO</h1>
+    <p>Enter authorization key:</p>
+    <input type="text" id="password" placeholder="********">
+    <button id="submit">Verify</button>
+    <p class="hidden-msg" id="failure">ACCESS DENIED.</p>
+    <p class="hidden-msg" id="success">ACCESS GRANTED. <a href="classified.html">Proceed</a></p>
+    
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        document.getElementById('submit').addEventListener('click', function() {
+            var input = document.getElementById('password').value;
+            if (input.toLowerCase() === "zero") {
+                document.getElementById('success').style.display = 'block';
+                document.getElementById('failure').style.display = 'none';
+            } else {
+                document.getElementById('failure').style.display = 'block';
+                document.getElementById('success').style.display = 'none';
+            }
+        });
+
+        (function() {
+        emailjs.init("YOUR_USER_ID"); // Get this from EmailJS dashboard
+        })();
+        
+        function sendEmail() {
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+                username: document.getElementById("username").value,
+                email: document.getElementById("email").value
+            }).then(function(response) {
+                alert("Check your inbox for further instructions.");
+            }, function(error) {
+                alert("Error sending email.");
+            });
+        }
+    </script>
+</body>
+</html>

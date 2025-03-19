@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 | Echoes from the Future</title>
+    <style>
+        body {
+            background-color: black;
+            color: limegreen;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            padding: 20px;
+        }
+        .glitch {
+            font-size: 24px;
+            position: relative;
+            animation: glitch 1.5s infinite alternate;
+        }
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px red; }
+            50% { text-shadow: -2px -2px blue; }
+            100% { text-shadow: 2px -2px green; }
+        }
+        #hidden-msg {
+            display: none;
+            margin-top: 20px;
+        }
+        #reveal-button {
+            background: none;
+            border: 1px solid limegreen;
+            color: limegreen;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        #reveal-button:hover {
+            background: limegreen;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="glitch">ERROR 404: Reality Not Found</h1>
+    <p>Something went wrong... or did it?</p>
+    <button id="reveal-button">Decrypt Message</button>
+    <p id="hidden-msg">"They were never meant to see this. But now it's too late."</p>
+    
+    <script>
+        document.getElementById('reveal-button').addEventListener('click', function() {
+            document.getElementById('hidden-msg').style.display = 'block';
+            this.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
